@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated Browser -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.xtext.example.browser.browser.presentation.BrowserModelWizardID"
+            name="%_UI_BrowserModelWizard_label"
+            class="org.xtext.example.browser.browser.presentation.BrowserModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/BrowserModelFile.gif">
+         <description>%_UI_BrowserModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated Browser -->
+      <editor
+            id="org.xtext.example.browser.browser.presentation.BrowserEditorID"
+            name="%_UI_BrowserEditor_label"
+            icon="icons/full/obj16/BrowserModelFile.gif"
+            extensions="brs"
+            class="org.xtext.example.browser.browser.presentation.BrowserEditor"
+            contributorClass="org.xtext.example.browser.browser.presentation.BrowserActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

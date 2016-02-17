@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.xtext.example.browser/src-gen" editDirectory="/org.xtext.example.browser.edit/src"
+    editorDirectory="/org.xtext.example.browser.editor/src" modelPluginID="org.xtext.example.browser"
+    forceOverwrite="true" modelName="Browser" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    complianceLevel="6.0" copyrightFields="false" editPluginID="org.xtext.example.browser.edit"
+    editorPluginID="org.xtext.example.browser.editor" runtimeVersion="2.11">
+  <genPackages prefix="Browser" basePackage="org.xtext.example.browser" disposableProviderFactory="true"
+      fileExtensions="brs" ecorePackage="Browser.ecore#/">
+    <genClasses ecoreClass="Browser.ecore#//WebBrowser">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Browser.ecore#//WebBrowser/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Browser.ecore#//WebBrowser/onglets"/>
+    </genClasses>
+    <genClasses ecoreClass="Browser.ecore#//Onglet">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Browser.ecore#//Onglet/url"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Browser.ecore#//Onglet/ins"/>
+    </genClasses>
+    <genClasses ecoreClass="Browser.ecore#//Instructions">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Browser.ecore#//Instructions/func"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Browser.ecore#//Instructions/ifCond"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Browser.ecore#//Instructions/loop"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Browser.ecore#//Instructions/coll"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Browser.ecore#//Instructions/mem"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Browser.ecore#//Instructions/procs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Browser.ecore#//Instructions/l"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Browser.ecore#//Instructions/v"/>
+    </genClasses>
+    <genClasses ecoreClass="Browser.ecore#//ProcedureLaunch">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Browser.ecore#//ProcedureLaunch/proc"/>
+    </genClasses>
+    <genClasses ecoreClass="Browser.ecore#//Function">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Browser.ecore#//Function/gtl"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Browser.ecore#//Function/cob"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Browser.ecore#//Function/ftf"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Browser.ecore#//Function/sel"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Browser.ecore#//Function/ci"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Browser.ecore#//Function/cl"/>
+    </genClasses>
+    <genClasses ecoreClass="Browser.ecore#//GoTo">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Browser.ecore#//GoTo/link"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Browser.ecore#//GoTo/v"/>
+    </genClasses>
+    <genClasses ecoreClass="Browser.ecore#//ClickOn">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Browser.ecore#//ClickOn/button"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Browser.ecore#//ClickOn/link"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Browser.ecore#//ClickOn/v"/>
+    </genClasses>
+    <genClasses ecoreClass="Browser.ecore#//Fill">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Browser.ecore#//Fill/tf"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Browser.ecore#//Fill/pass"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Browser.ecore#//Fill/v"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Browser.ecore#//Fill/input"/>
+    </genClasses>
+    <genClasses ecoreClass="Browser.ecore#//Select">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Browser.ecore#//Select/sb"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Browser.ecore#//Select/v"/>
+    </genClasses>
+    <genClasses ecoreClass="Browser.ecore#//CheckIf">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Browser.ecore#//CheckIf/args"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Browser.ecore#//CheckIf/v1"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Browser.ecore#//CheckIf/linKToCheck"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Browser.ecore#//CheckIf/v2"/>
+    </genClasses>
+    <genClasses ecoreClass="Browser.ecore#//Clear">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Browser.ecore#//Clear/t"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Browser.ecore#//Clear/p"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Browser.ecore#//Clear/v"/>
+    </genClasses>
+    <genClasses ecoreClass="Browser.ecore#//BooleanCondition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Browser.ecore#//BooleanCondition/arg1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Browser.ecore#//BooleanCondition/arg2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Browser.ecore#//BooleanCondition/arg"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Browser.ecore#//BooleanCondition/bool"/>
+    </genClasses>
+    <genClasses ecoreClass="Browser.ecore#//Condition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Browser.ecore#//Condition/ifCond"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Browser.ecore#//Condition/func"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Browser.ecore#//Condition/elseifConds"/>
+    </genClasses>
+    <genClasses ecoreClass="Browser.ecore#//Loop">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Browser.ecore#//Loop/func"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Browser.ecore#//Loop/bool"/>
+    </genClasses>
+    <genClasses ecoreClass="Browser.ecore#//WebPageObj">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Browser.ecore#//WebPageObj/tf"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Browser.ecore#//WebPageObj/psw"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Browser.ecore#//WebPageObj/btn"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Browser.ecore#//WebPageObj/ck"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Browser.ecore#//WebPageObj/t"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Browser.ecore#//WebPageObj/l"/>
+    </genClasses>
+    <genClasses ecoreClass="Browser.ecore#//TextField">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Browser.ecore#//TextField/username"/>
+    </genClasses>
+    <genClasses ecoreClass="Browser.ecore#//Password">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Browser.ecore#//Password/password"/>
+    </genClasses>
+    <genClasses ecoreClass="Browser.ecore#//Button">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Browser.ecore#//Button/button"/>
+    </genClasses>
+    <genClasses ecoreClass="Browser.ecore#//CheckBox">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Browser.ecore#//CheckBox/checkBox"/>
+    </genClasses>
+    <genClasses ecoreClass="Browser.ecore#//Text">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Browser.ecore#//Text/text"/>
+    </genClasses>
+    <genClasses ecoreClass="Browser.ecore#//Link">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Browser.ecore#//Link/link"/>
+    </genClasses>
+    <genClasses ecoreClass="Browser.ecore#//Collections">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Browser.ecore#//Collections/s"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Browser.ecore#//Collections/c"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Browser.ecore#//Collections/f"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Browser.ecore#//Collections/g"/>
+    </genClasses>
+    <genClasses ecoreClass="Browser.ecore#//FillAllTextFields">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Browser.ecore#//FillAllTextFields/input"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Browser.ecore#//FillAllTextFields/v"/>
+    </genClasses>
+    <genClasses ecoreClass="Browser.ecore#//Variable">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Browser.ecore#//Variable/o"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Browser.ecore#//Variable/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Browser.ecore#//Memorise">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Browser.ecore#//Memorise/obj"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Browser.ecore#//Memorise/var"/>
+    </genClasses>
+    <genClasses ecoreClass="Browser.ecore#//Parameters">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Browser.ecore#//Parameters/pars"/>
+    </genClasses>
+    <genClasses ecoreClass="Browser.ecore#//Procedure">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Browser.ecore#//Procedure/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Browser.ecore#//Procedure/params"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Browser.ecore#//Procedure/ins"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

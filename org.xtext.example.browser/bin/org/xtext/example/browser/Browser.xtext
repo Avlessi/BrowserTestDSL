@@ -1,0 +1,320 @@
+grammar org.xtext.example.browser.Browser with org.eclipse.xtext.common.Terminals
+
+generate browser "http://www.xtext.org/example/browser/Browser"
+
+/*Model:
+	'webBrowser' name=ID
+	'open'
+		onglets+=Onglet*
+	'close';
+	
+Onglet:
+	 'open' 'Onglet' ':' url=STRING	 	
+	  ins=Instruction*  
+	 'close';
+
+Instruction:
+	function=Function |  
+	ifcond+=Condition |
+	loop+=Loop |
+	coll = Collections |
+	mem = Memorise |
+	proc = Procedure |
+	launchProc = ProcedureLaunch |
+	variable = Variable
+;
+
+Function:
+	GoToLink |
+	ClickOn |
+	Fill |
+	SelectCheckBox |	 
+	CheckIf |
+	Clear 
+;
+
+GoToLink:
+	'goTo' (link=Link | v=[Variable] )  
+;
+
+ClickOn:
+	'clickOn' ( b=Button | l=Link | v=[Variable] ) 
+;
+
+Fill:
+	'fill' (t=TextField | p=Password | v1=[Variable] ) 'with' (input=STRING | v2=[Variable])  	
+;
+
+SelectCheckBox:
+	'select' ( cb=CheckBox | v=[Variable] ) 
+;
+
+CheckIf:
+	'checkIf' ( args=STRING | v1=[Variable] ) 'isIn' (linkToCheck=STRING | v2=[Variable] ) 
+;
+
+Clear:
+	'clear' (t=TextField | p=Password | v=[Variable])
+;
+
+Loop:
+	'do' '{' funcs+=Function+ '}' 'while' '(' cond=BooleanCondition ')'
+;
+
+Condition:
+	'if'  '(' ifCond = BooleanCondition ')' 
+		'{' (funcs+=Function+) '}' 
+	( 'else if' '(' elseifConds += BooleanCondition ')' 
+		(funcs+=Function+) 	)*
+	( 'else' '{' ( funcs+=Function+)  '}'  )*  
+;
+
+BooleanCondition:
+	(arg1=WebPageObj | v1=[Variable]) 'equals' (arg2=WebPageObj | v2=[Variable] ) |
+	(arg1=WebPageObj | v1=[Variable]) 'notEquals' (arg2=WebPageObj | v2=[Variable] )|
+	'true' | 
+	'false' | 
+	(arg=WebPageObj | v=[Variable]) 'isEmpty' |
+	(arg=WebPageObj | v=[Variable]) 'isNotEmpty' |
+	(arg=WebPageObj | v=[Variable] ) 'exist' |
+	'not' '(' (arg=WebPageObj | v=[Variable]) ')'
+;
+
+WebPageObj:
+	TextField |
+	Password |
+	Button |
+	CheckBox |
+	Text |
+	Link	 		
+;
+
+TextField:
+	'textField' username=STRING
+;
+
+Password:
+	'password' password=STRING 
+;
+
+Button:
+	'button' button=STRING 
+;
+
+CheckBox:
+	'checkBox' checkBox=STRING 
+;
+
+Text:
+	'text' text=STRING
+;
+
+Link:
+	'link' link=STRING
+;
+
+Collections:
+	SelectAllCheckboxes | 
+	ClickOnAllButtons |
+	FillAllTextFields |
+	GoToAllLinks
+;
+
+SelectAllCheckboxes:
+	'selectAllCheckBoxes'
+;
+
+ClickOnAllButtons :
+	'clickOnAllButtons'
+;
+
+FillAllTextFields:
+	'fillAllTextFields' 'with' (input=STRING | v=[Variable])
+;
+
+GoToAllLinks:
+	'goToAllLinks'
+;
+
+Memorise:
+	'memorise' obj=WebPageObj 'in' variable=[Variable]
+;
+
+Variable:
+	'var' (o=WebPageObj) (name=ID)
+;
+
+Procedure:
+	'procedure' name=ID 'with' 'Params'	
+	parameters=Parameters
+	inst+=Instruction+
+	'endProcedure'
+;
+
+Parameters:
+	pars+=STRING*
+;
+
+ProcedureLaunch:
+	'launchProcedure' proc=[Procedure]
+;*/
+
+
+WebBrowser:
+	'webBrowser' name=ID
+		'open'
+			onglets+=Onglet*
+		'close';
+	
+Onglet:
+	'open' 'Onglet' ':' url=STRING
+		ins+=Instructions*
+	'close'
+;
+
+Instructions:
+	func=Function |
+	ifCond=Condition|
+	loop=Loop |
+	coll = Collections |
+	mem = Memorise |
+	procs = Procedure |
+	l = ProcedureLaunch |
+	v= Variable
+;
+
+ProcedureLaunch :
+	'launchProcedure' proc=[Procedure]
+;
+
+Function :
+	gtl=GoTo | 
+	cob=ClickOn |
+	ftf=Fill |
+	sel=Select|	
+	ci=CheckIf|
+	cl=Clear
+;
+
+GoTo:
+	'goTo' (link=Link|v=[Variable])
+;
+
+ClickOn:
+	'clickOn' (button=Button|link=Link|v=[Variable])
+;
+
+Fill :
+	'fill' (tf=TextField|pass=Password|v=[Variable]) 'with' input=STRING 
+;
+
+Select :
+	'select' (sb=CheckBox|v=[Variable])
+;
+
+
+CheckIf:
+	'checkIf' (args=STRING|v1=[Variable]) 'isIn' (linKToCheck=STRING|v2=[Variable]) 
+;
+
+Clear:
+	'clear' (t=TextField|p=Password|v=[Variable])
+;
+
+
+BooleanCondition :
+	arg1=(WebPageObj|[Variable]) 'equals' arg2=(WebPageObj|[Variable]) |
+	arg1=(WebPageObj|[Variable]) 'notEquals' arg2=(WebPageObj|[Variable]) |
+	 'true' | 'false' |
+	arg1=(WebPageObj|[Variable]) 'isEmpty' | 
+	arg1=(WebPageObj|[Variable]) 'isNotEmpty' |
+	arg=(WebPageObj|[Variable]) 'exist' |
+	'Not' '('bool=(BooleanCondition|[Variable])')'
+;
+
+Condition:
+	'if'  '(' ifCond = (BooleanCondition|[Variable]) ')'
+		'{'(func+=Function+)'}'	
+	('else if' '(' elseifConds += (BooleanCondition|[Variable]) ')'
+		'{'(func+=Function+)'}'	
+	)*
+	('else' '{'(func+=Function+) '}')*
+;
+
+Loop : 
+	'do' '{'(func+=Function+)'}'
+	'while' '(' bool=(BooleanCondition|[Variable]) ')'
+;
+
+WebPageObj :
+	tf=TextField|
+	psw=Password|
+	btn=Button |
+	ck=CheckBox|
+	t=Text|
+	l= Link
+;
+
+TextField:
+	'textField' username=STRING 
+;
+Password:
+	'password' password=STRING
+;
+Button :
+	'button' button=STRING
+;
+
+CheckBox:
+	'checkBox' checkBox=STRING
+;
+
+Text:
+	'text' text=STRING
+;
+
+Link:
+	'link' link=STRING
+;
+
+Collections:
+	s=SelectAllCheckboxes | 
+	c=ClickOnAllButtons |
+	f=FillAllTextFields |
+	g=GoToAllLinks
+;
+
+SelectAllCheckboxes:
+	'selectAllCheckBoxes'
+;
+
+ClickOnAllButtons :
+	'clickOnAllButtons'
+;
+
+FillAllTextFields:
+	'fillAllTextFields' 'with' (input=STRING|v=[Variable])
+;
+
+GoToAllLinks:
+	'goToAllLinks'
+;
+
+Variable :
+	'var' (o=WebPageObj) (name=ID)
+;
+
+Memorise:
+	"memorise" obj=WebPageObj 'in' var=[Variable]
+;
+
+Parameters:
+	pars+=STRING*
+;
+
+Procedure:
+	'procedure' name=ID 'with' 'Params' 
+	params=Parameters
+	ins+=Instructions+
+	'endProcedure'
+;

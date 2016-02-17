@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="browser" nsURI="http://www.xtext.org/example/browser/Browser"
+    nsPrefix="browser">
+  <eClassifiers xsi:type="ecore:EClass" name="WebBrowser">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="onglets" upperBound="-1"
+        eType="#//Onglet" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Onglet">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="url" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ins" upperBound="-1" eType="#//Instructions"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Instructions">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="func" eType="#//Function"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ifCond" eType="#//Condition"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="loop" eType="#//Loop" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="coll" eType="#//Collections"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mem" eType="#//Memorise"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="procs" eType="#//Procedure"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="l" eType="#//ProcedureLaunch"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="v" eType="#//Variable"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProcedureLaunch">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="proc" eType="#//Procedure"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Function">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="gtl" eType="#//GoTo" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cob" eType="#//ClickOn"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ftf" eType="#//Fill" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sel" eType="#//Select"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ci" eType="#//CheckIf"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cl" eType="#//Clear" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GoTo">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="link" eType="#//Link" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="v" eType="#//Variable"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ClickOn">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="button" eType="#//Button"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="link" eType="#//Link" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="v" eType="#//Variable"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Fill">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tf" eType="#//TextField"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pass" eType="#//Password"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="v" eType="#//Variable"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="input" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Select">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sb" eType="#//CheckBox"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="v" eType="#//Variable"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CheckIf">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="args" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="v1" eType="#//Variable"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="linKToCheck" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="v2" eType="#//Variable"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Clear">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="t" eType="#//TextField"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="p" eType="#//Password"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="v" eType="#//Variable"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BooleanCondition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="arg1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="arg2" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="arg" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bool" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Condition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ifCond" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="func" upperBound="-1" eType="#//Function"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elseifConds" upperBound="-1"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Loop">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="func" upperBound="-1" eType="#//Function"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bool" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="WebPageObj">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tf" eType="#//TextField"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="psw" eType="#//Password"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="btn" eType="#//Button"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ck" eType="#//CheckBox"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="t" eType="#//Text" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="l" eType="#//Link" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TextField">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="username" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Password">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="password" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Button">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="button" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CheckBox">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="checkBox" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Text">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Link">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="link" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Collections">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="s" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="c" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="f" eType="#//FillAllTextFields"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="g" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FillAllTextFields">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="input" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="v" eType="#//Variable"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Variable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="o" eType="#//WebPageObj"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Memorise">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="obj" eType="#//WebPageObj"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="var" eType="#//Variable"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Parameters">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pars" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Procedure">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="params" eType="#//Parameters"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ins" upperBound="-1" eType="#//Instructions"
+        containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>
